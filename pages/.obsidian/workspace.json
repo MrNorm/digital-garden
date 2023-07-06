@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "projects/Digital Garden.md",
+                "file": "projects/digital-garden.md",
                 "mode": "source",
                 "source": false
               }
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "projects/Digital Garden.md",
+                "file": "projects/digital-garden.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "projects/Digital Garden.md",
+                "file": "projects/digital-garden.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "projects/Digital Garden.md"
+                "file": "projects/digital-garden.md"
               }
             }
           }
@@ -155,9 +155,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8747c31039b728ad",
+  "active": "dd03ddc500b1853a",
   "lastOpenFiles": [
-    "projects/Digital Garden.md",
+    "projects/digital-garden.md",
     "projects",
     "src"
   ]

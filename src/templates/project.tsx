@@ -1,14 +1,21 @@
-import * as React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { type PageProps, graphql } from 'gatsby'
 
-const ProjectTemplate = ({ data }) => {
+interface ProjectProps {
+  markdownRemark: {
+    title: string
+    html: string
+  }
+}
+
+function ProjectTemplate ({ data }: PageProps<ProjectProps>): JSX.Element {
   const post = data.markdownRemark
 
   return (
     <section>
       <h1>{ post.title }</h1>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-   </section>
+    </section>
   )
 }
 

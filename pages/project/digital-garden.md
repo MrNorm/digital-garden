@@ -3,7 +3,8 @@ date: "2023-07-06"
 title: "Digital Garden"
 id: "digital-garden"
 project: "digital-garden"
-tags: ["code", "digital garden"]
+repos: ["https://github.com/mrnorm/digital-garden"]
+tags: ["code", "digital-garden"]
 ---
 
 # Digital Garden 🌻

@@ -12,6 +12,13 @@ module.exports = {
         path: path.resolve('./pages/project')
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'cuttings',
+        path: path.resolve('./pages/cutting')
+      }
+    },
     'gatsby-transformer-remark'
   ]
 }

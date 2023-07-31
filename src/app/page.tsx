@@ -4,20 +4,21 @@ import { gql } from '@apollo/client'
 import Link from 'next/link'
 
 export const revalidate = 3600
-const query = gql`query {
-  Projects {
-    docs {
-      title,
-      slug,
-      tags { name },
-      publishedDate,
-      category { name }
-    }
-    totalDocs
-  }
-}`
 
 export default async function Home (): Promise<JSX.Element> {
+  const query = gql`query {
+    Projects {
+      docs {
+        title,
+        slug,
+        tags { name },
+        publishedDate,
+        category { name }
+      }
+      totalDocs
+    }
+  }`
+
   const client = getClient()
   const { data } = await client.query({ query })
   const projects = data.Projects.docs
@@ -35,8 +36,7 @@ export default async function Home (): Promise<JSX.Element> {
           For some insight on what I&lsquo;m working on at the moment (including this site), check out the projects I have on below.
         </p>
         <ul>
-          {projects.map(({ project, index }: { project: { slug: string, title: string }, index: number }) => {
-            if (project === undefined) return null
+          {projects.map((project: { slug: string, title: string }, index: number) => {
             return (
               <li key={index}><Link href={`/project/${project.slug}`}>{project.title}</Link></li>
             )

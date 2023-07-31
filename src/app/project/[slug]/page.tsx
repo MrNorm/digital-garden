@@ -4,9 +4,25 @@ import { gql } from '@apollo/client'
 import { slateToHtml } from 'slate-serializers'
 
 export const revalidate = 3600
+const client = getClient()
+
+export async function generateStaticParams (): Promise<[{ slug: string }]> {
+  const query = gql`query {
+    Projects {
+      docs {
+        slug
+      }
+    }
+  }`
+  const { data } = await client.query({ query })
+  const projects = data.Projects.docs // TODO: Sort this out
+
+  return projects.map((project: { slug: string }) => ({
+    slug: project.slug
+  }))
+}
 
 export default async function Home ({ params }: { params: { slug: string } }): Promise<JSX.Element> {
-  const client = getClient()
   const slug = params?.slug ?? ''
   const query = gql`query {
     Projects(

@@ -3,7 +3,7 @@ import { getClient } from '@/lib/graphql-client'
 import { gql } from '@apollo/client'
 import Link from 'next/link'
 
-export const revalidate = 3600
+export const revalidate = 300
 
 export default async function Home (): Promise<JSX.Element> {
   const query = gql`query {

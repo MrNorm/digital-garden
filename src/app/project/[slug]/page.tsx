@@ -1,29 +1,29 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 import styles from '../../page.module.css'
 import { getClient } from '@/lib/graphql-client'
-import escapeHTML from 'escape-html';
-import { Text } from 'slate'
 import { gql } from '@apollo/client'
+import escapeHTML from 'escape-html'
+import { Text } from 'slate'
 
-export const revalidate = 5
-const query = gql`query {
-  Projects(
-    where: { title: { contains: "Digital" } }
-    limit: 1
-  ) {
-    docs {
-      title,
-      tags { name },
-      publishedDate,
-      category { name },
-      content
-    }
-    totalDocs
-  }
-}`
+export const revalidate = 3600
 
 export default async function Home ({ params }: { params: { slug: string } }): Promise<JSX.Element> {
   const client = getClient()
+  const query = gql`query {
+    Projects(
+      where: { slug: { equals: "${params.slug}" } }
+      limit: 1
+    ) {
+      docs {
+        title,
+        tags { name },
+        publishedDate,
+        category { name },
+        content
+      }
+      totalDocs
+    }
+  }`
   const { data } = await client.query({ query })
   const project = data.Projects.docs[0] // TODO: Sort this out
 
@@ -31,10 +31,6 @@ export default async function Home ({ params }: { params: { slug: string } }): P
     <main>
         <h1>{project.title}</h1>
         {serialize(project.content)}
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/project/[{params.slug}]/page.tsx</code>
-        </p>
     </main>
   )
 }

@@ -1,94 +1,46 @@
-import Image from 'next/image'
 import styles from './page.module.css'
+import { getClient } from '@/lib/graphql-client'
+import { gql } from '@apollo/client'
+import Link from 'next/link'
 
-export default function Home (): JSX.Element {
+export const revalidate = 3600
+const query = gql`query {
+  Projects {
+    docs {
+      title,
+      slug,
+      tags { name },
+      publishedDate,
+      category { name }
+    }
+    totalDocs
+  }
+}`
+
+export default async function Home (): Promise<JSX.Element> {
+  const client = getClient()
+  const { data } = await client.query({ query })
+  const projects = data.Projects.docs
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+          Hello, my name is Oliver Northam and welcome to my space on the internet. From here you'll be able to learn about me, what projects I'm working on and generally what I'm getting up to in life.
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <p>
+          Established July 2023, this space is early days at the moment but I aim to contribute little and often to it as time goes on. Turning it from a dirt pile of unstyled text to a matured digital gardem.
+        </p>
+        <p>
+          For some insight on what I'm working on at the moment (including this site), check out the projects I have on below.
+        </p>
+        <ul>
+          {projects.map((project, index) => {
+            return (
+              <li key={index}><Link href={`/project/${project.slug}`}>{project.title}</Link></li>
+            )
+          })}
+        </ul>
       </div>
     </main>
   )

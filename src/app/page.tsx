@@ -36,6 +36,7 @@ export default async function Home (): Promise<JSX.Element> {
         </p>
         <ul>
           {projects.map(({ project, index }: { project: { slug: string, title: string }, index: number }) => {
+            if (project === undefined) return null
             return (
               <li key={index}><Link href={`/project/${project.slug}`}>{project.title}</Link></li>
             )

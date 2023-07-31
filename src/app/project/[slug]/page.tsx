@@ -7,9 +7,10 @@ export const revalidate = 3600
 
 export default async function Home ({ params }: { params: { slug: string } }): Promise<JSX.Element> {
   const client = getClient()
+  const slug = params?.slug ?? ''
   const query = gql`query {
     Projects(
-      where: { slug: { equals: "${params.slug}" } }
+      where: { slug: { equals: "${slug}" } }
       limit: 1
     ) {
       docs {

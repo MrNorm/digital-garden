@@ -3,7 +3,7 @@ import { getClient } from '@/lib/graphql-client'
 import { gql } from '@apollo/client'
 import { slateToHtml } from 'slate-serializers'
 
-export const revalidate = 300
+export const revalidate = 1
 const client = getClient()
 
 export async function generateStaticParams (): Promise<[{ slug: string }]> {

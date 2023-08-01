@@ -1,8 +1,8 @@
 import './globals.css'
 import { type Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Zilla_Slab } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const zilla = Zilla_Slab({ weight: ['300', '500', '600'], style: ['italic', 'normal'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Oliver Northam - My Digital Garden',
@@ -16,7 +16,7 @@ export default function RootLayout ({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={zilla.className}>{children}</body>
     </html>
   )
 }

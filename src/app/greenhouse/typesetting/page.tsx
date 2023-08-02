@@ -44,6 +44,12 @@ export default function Typesetting (): JSX.Element {
           He&lsquo;s naked! Naked. Ok, so Jo&lsquo;s yelling at him to get out of the way, right? And he just strolls up to the twister,
           says &lsquo;have a drink&lsquo;, and he chucks the bottle into the twister, and it NEVER hits the ground.
         </p>
+        <ul>
+          <li>Look, all I&lsquo;m saying is don&lsquo;t fold the maps.</li>
+          <li>Uh... yeah, trust me. Rabbit is good, Rabbit is wise.</li>
+          <li>&quot;The Suck Zone&quot;. It&lsquo;s the point basically when the twister... sucks you up. That&lsquo;s not the technical term for it, obviously.</li>
+          <li>She did not marry your penis... Okay, alright, she didn&lsquo;t only marry your penis.</li>
+        </ul>
         <pre>Dorothy. You took her, you damn thief.</pre>
       </div>
     </main>

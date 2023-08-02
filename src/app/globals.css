@@ -124,7 +124,7 @@ h5 {
   font-weight: 600;
 }
 
-h6 {
+h6, blockquote {
   font-size: 1.2em;
   font-weight: 500;
   margin-left: 1.5em; 
@@ -141,6 +141,17 @@ p {
   font-weight: 300;
   line-height: 1.4em;
   margin-bottom: 1.1em;
+}
+
+ul {
+  margin-bottom: 1.1em;
+}
+
+li {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 1.7em;
+  margin-left: 2.5em;
 }
 
 pre {

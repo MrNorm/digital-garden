@@ -1,9 +1,9 @@
 import React from 'react'
 import { getClient } from '@/lib/graphql-client'
 import { gql } from '@apollo/client'
-import { slateToHtml } from 'slate-serializers'
+import { serialize } from '@/lib/slate-serializer'
 
-export const revalidate = 1
+export const revalidate = 300
 const client = getClient()
 
 export async function generateStaticParams (): Promise<[{ slug: string }]> {
@@ -41,12 +41,13 @@ export default async function Home ({ params }: { params: { slug: string } }): P
   }`
   const { data } = await client.query({ query })
   const project = data.Projects.docs[0] // TODO: Sort this out
-  const html = slateToHtml(project.content) // TODO: Don't like this...
 
   return (
     <main>
         <h1>{project.title}</h1>
-        <div className='page' dangerouslySetInnerHTML={{ __html: html }} />
+        <div className='page'>
+          {serialize(project.content)}
+        </div>
     </main>
   )
 }

@@ -4,8 +4,8 @@
   --fallback-stack: Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif;
 
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-secondary-rgb: 80, 80, 80;
+  --background-rgb: 255, 255, 255;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -41,8 +41,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-secondary-rgb: 80, 80, 80;
+    --background-rgb: 0, 0, 0;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
@@ -86,12 +86,8 @@ body {
 body {
   font-family: var(--fallback-stack);
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  padding: 2em;
+  background: rgb(var(--background-rgb));
 }
 
 a {
@@ -150,7 +146,17 @@ p {
 pre {
   padding: 3em;
   margin-bottom: 1.2em;
-  font-size: 1.2em
+  font-size: 1.2em;
+  overflow: auto;
+}
+
+header > div.logo {
+  font-size: 3em;
+  font-weight: 600;
+}
+
+span.dot {
+  color: rgb(var(--foreground-secondary-rgb));
 }
 
 @media (prefers-color-scheme: dark) {

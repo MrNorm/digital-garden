@@ -1,7 +1,7 @@
 export default function Typesetting (): JSX.Element {
   return (
     <main>
-      <div>
+      <div className='page'>
         <h1>I gotta go Julia, we got cows</h1>
         <p>
           So we get this one near Daleton, right? And we are way too close. And Jo&lsquo;s got the vid on it right, she&lsquo;s filming it.

@@ -1,5 +1,5 @@
 :root {
-  --max-width: 1100px;
+  --page-max-width: 900px;
   --border-radius: 12px;
   --fallback-stack: Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif;
 
@@ -157,6 +157,10 @@ header > div.logo {
 
 span.dot {
   color: rgb(var(--foreground-secondary-rgb));
+}
+
+div.page {
+  max-width: var(--page-max-width);
 }
 
 @media (prefers-color-scheme: dark) {

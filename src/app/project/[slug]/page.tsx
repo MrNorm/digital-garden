@@ -46,7 +46,7 @@ export default async function Home ({ params }: { params: { slug: string } }): P
   return (
     <main>
         <h1>{project.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div className='page' dangerouslySetInnerHTML={{ __html: html }} />
     </main>
   )
 }

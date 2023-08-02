@@ -25,7 +25,7 @@ export default async function Home (): Promise<JSX.Element> {
 
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
+      <div className='page'>
         <p>
           Hello, my name is Oliver Northam and welcome to my space on the internet. From here you&lsquo;ll be able to learn about me, what projects I&lsquo;m working on and generally what I&lsquo;m getting up to in life.
         </p>

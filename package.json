@@ -13,8 +13,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vike": "^0.4.195",
-    "vike-react": "^0.5.6",
-    "vite-plugin-vercel": "^9.0.1"
+    "vike-cloudflare": "^0.1.1",
+    "vike-react": "^0.5.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

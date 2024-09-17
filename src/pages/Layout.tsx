@@ -6,14 +6,6 @@ import './Layout.css'
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <PageLayout>
-      <Sidebar>
-        <a className="navitem" href="/">
-          Home
-        </a>
-        <a className="navitem" href="/about">
-          About
-        </a>
-      </Sidebar>
       <Content>{children}</Content>
     </PageLayout>
   )
@@ -21,31 +13,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 function PageLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        maxWidth: 900,
-        margin: 'auto',
-      }}
-    >
-      {children}
-    </div>
-  )
-}
-
-function Sidebar({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        padding: 20,
-        paddingTop: 42,
-        flexShrink: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        lineHeight: '1.8em',
-      }}
-    >
+    <div className='w-full p-10'>
       {children}
     </div>
   )
@@ -53,14 +21,7 @@ function Sidebar({ children }: { children: React.ReactNode }) {
 
 function Content({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      style={{
-        padding: 20,
-        paddingBottom: 50,
-        borderLeft: '2px solid #eee',
-        minHeight: '100vh',
-      }}
-    >
+    <div>
       {children}
     </div>
   )

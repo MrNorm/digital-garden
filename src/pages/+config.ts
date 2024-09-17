@@ -8,4 +8,5 @@ const config = {
   Layout: Layout,
   // https://vike.dev/extends
   extends: vikeReact,
+  htmlAttributes: { class: "bg-black" }
 }

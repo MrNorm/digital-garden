@@ -1,5 +1,7 @@
 export { Layout }
 
+import logoUrl from '../assets/logo.svg'  
+
 import React from 'react'
 import './Layout.css'
 
@@ -30,7 +32,8 @@ function Content({ children }: { children: React.ReactNode }) {
 
 function Header() {
   return (
-    <a href="/"><h1 className="text-white text-4xl mb-5">Oli<span className="text-slate-500">.</span></h1></a>
+    <div className="flex">
+      <a href="/"><img src={logoUrl} alt="Logo for Oliver Northam digital garden" /></a>
+    </div>    
   )
 }
-

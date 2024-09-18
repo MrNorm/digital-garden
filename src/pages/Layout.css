@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #1E1E1E; 
+}
+
+
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 10px solid #E2DBDB  ; /* Adjust thickness and color */
+    pointer-events: none; /* Prevent the border from blocking clicks */
+    z-index: 9999; /* Ensure it's on top of other content */
+  }
+  

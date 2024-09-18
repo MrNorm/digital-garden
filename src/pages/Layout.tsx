@@ -1,7 +1,5 @@
 export { Layout }
 
-import logoUrl from '../assets/logo.svg'  
-
 import React from 'react'
 import './Layout.css'
 
@@ -17,7 +15,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 function PageLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className='w-full p-10'>
-      {children}
+      {   children}
     </div>
   )
 }
@@ -33,7 +31,7 @@ function Content({ children }: { children: React.ReactNode }) {
 function Header() {
   return (
     <div className="flex">
-      <a href="/"><img src={logoUrl} alt="Logo for Oliver Northam digital garden" /></a>
+      <a href="/"><img src={"/logo.svg"} alt="Logo for Oliver Northam digital garden" /></a>
     </div>    
   )
 }

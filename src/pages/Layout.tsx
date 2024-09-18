@@ -6,6 +6,7 @@ import './Layout.css'
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <PageLayout>
+      <Header></Header>
       <Content>{children}</Content>
     </PageLayout>
   )
@@ -26,3 +27,10 @@ function Content({ children }: { children: React.ReactNode }) {
     </div>
   )
 }
+
+function Header() {
+  return (
+    <a href="/"><h1 className="text-white text-4xl mb-5">Oli<span className="text-slate-500">.</span></h1></a>
+  )
+}
+
